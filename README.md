@@ -1,2 +1,2 @@
 # Optimization
-Common Alogorithms of Optimization problems
+Common Algorithms of Optimization problems
