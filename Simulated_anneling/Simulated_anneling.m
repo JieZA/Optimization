@@ -9,6 +9,7 @@ d=[8 12 24 16 6 9 35 21 18 19];%物品重量
 restriction=50;%背包能够承受的最大重量
 num=length(k);%物品数量
 sol_new=round(rand(1,num));%随机生成初始解
+sol_current=sol_new;
 E_current=inf;E_best=inf;%E_current是当前解对应的目标函数，E_best是最优解，E_new是新解的目标函数值
 t0=97;tf=3;t=t0;
 while t>tf
@@ -38,11 +39,11 @@ while t>tf
                 sol_best=sol_new;
             end
         else
-            if (rand<exp(-(E_new-E_current)./t))
+            if (rand<exp(-(E_new-E_current)./t)) %t较高时，容易跳出局部最优解进行全局搜索
                  E_current=E_new;
                  sol_current=sol_new;
             else
-                 sol_new=sol_current;
+                 sol_new=sol_current; %t较低的情况，程序跳出搜索的可能性变小，进行精确搜索
             end
         end
     end
