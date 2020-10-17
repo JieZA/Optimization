@@ -1,3 +1,5 @@
+%%自定义GA函数
+
 function [best_fitness, elite, generation, last_generation] = my_ga( ...
     number_of_variables, ...    % 求解问题的参数个数
     fitness_function, ...       % 自定义适应度函数名
